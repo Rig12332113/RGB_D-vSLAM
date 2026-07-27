@@ -9,6 +9,9 @@ The implementation is intentionally kept readable and experimental. It is a
 reference for studying the individual prediction, association, mapping, and
 localization steps before moving them into a real-time ROS 2 node.
 
+<img width="480" height="480" alt="odometry_path" src="https://github.com/user-attachments/assets/c7d4b0b9-0463-47f6-bc5b-e121dd0f4561" />
+<img width="480" height="480" alt="landmarks_2d" src="https://github.com/user-attachments/assets/e545e4a4-6051-44af-8b91-969ef4a48c32" />
+
 ## Features
 
 - Sequential offline processing with `rosbag2_py`
