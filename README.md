@@ -25,7 +25,8 @@ localization steps before moving them into a real-time ROS 2 node.
 - Sparse landmark observation Jacobian
 - Robot and landmark EKF updates
 - Wheel-odometry, visual-update, and Gazebo ground-truth comparison
-- Optional 2D and 3D discarded-landmark visualization
+- Separate path-only and landmark visualization outputs
+- Optional 3D discarded-landmark visualization
 
 The bag contains IMU messages, but the current estimator does not fuse the IMU.
 
@@ -112,19 +113,28 @@ landmarks and accepted observations.
 
 ## Output
 
-At completion, the script displays and saves:
+At completion, the script displays and saves two 2D figures.
+
+The clean path comparison is:
 
 ```text
 odometry_path.png
 ```
 
-The 2D figure compares:
+It compares:
 
 - Wheel/Ackermann odometry
 - Gazebo ground truth
 - Robot pose before the visual update
 - Robot pose after the visual update
-- Discarded landmark positions
+
+The landmark figure is:
+
+```text
+landmarks_2d.png
+```
+
+It shows the updated SLAM path together with discarded landmark positions.
 
 Set the following flag in `visual_slam.py` to enable the separate 3D landmark
 figure:

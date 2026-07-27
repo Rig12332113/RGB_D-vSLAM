@@ -3,5 +3,6 @@ bags.zip
 __pycache__/
 *.py[cod]
 odometry_path.png
+landmarks_2d.png
 discarded_landmarks_3d.png
 .pytest_cache/

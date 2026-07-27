@@ -495,15 +495,6 @@ if len(slam_updated_path) > 0:
         slam_updated_path[:, 1],
         label="SLAM after visual update",
     )
-if len(discarded_points_array) > 0:
-    plt.scatter(
-        discarded_points_array[:, 0],
-        discarded_points_array[:, 1],
-        s=8,
-        alpha=0.3,
-        color="red",
-        label="Discarded landmarks",
-    )
 plt.scatter(path[0, 0], path[0, 1], color="green", label="Start")
 plt.xlabel("x [m]")
 plt.ylabel("y [m]")
@@ -513,6 +504,38 @@ plt.grid(True)
 plt.legend()
 plt.tight_layout()
 plt.savefig("odometry_path.png", dpi=160)
+
+landmark_figure = plt.figure(figsize=(8, 8))
+landmark_axis = landmark_figure.add_subplot(111)
+if len(slam_updated_path) > 0:
+    landmark_axis.plot(
+        slam_updated_path[:, 0],
+        slam_updated_path[:, 1],
+        label="SLAM path",
+    )
+if len(discarded_points_array) > 0:
+    landmark_axis.scatter(
+        discarded_points_array[:, 0],
+        discarded_points_array[:, 1],
+        s=8,
+        alpha=0.3,
+        color="red",
+        label="Discarded landmarks",
+    )
+landmark_axis.scatter(
+    path[0, 0],
+    path[0, 1],
+    color="green",
+    label="Start",
+)
+landmark_axis.set_xlabel("x [m]")
+landmark_axis.set_ylabel("y [m]")
+landmark_axis.set_title("SLAM path and discarded landmarks")
+landmark_axis.axis("equal")
+landmark_axis.grid(True)
+landmark_axis.legend()
+landmark_figure.tight_layout()
+landmark_figure.savefig("landmarks_2d.png", dpi=160)
 
 if PLOT_LANDMARKS_3D:
     figure_3d = plt.figure(figsize=(10, 8))
