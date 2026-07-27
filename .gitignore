@@ -1,0 +1,7 @@
+bags/
+bags.zip
+__pycache__/
+*.py[cod]
+odometry_path.png
+discarded_landmarks_3d.png
+.pytest_cache/
